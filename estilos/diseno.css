@@ -1,0 +1,67 @@
+*{
+	font-family: sans-serif;
+}
+
+#containerbienvenida{
+	position: relative;
+	width: 500px; height: 500px;
+	margin: auto; margin-top: 10%;
+}
+#tituloBienvenida{
+	text-align: center;
+	position: absolute;
+	top: 40%; left: 35%;
+}
+#positionButtonBienvenida{
+	display: inline-block;
+	position: absolute;
+	bottom: 0; right: 0;
+}
+#botnIniciar{
+	background: #ddd;
+	border: none; height: 40px;
+	border-radius: 10px;
+	box-shadow: 0 3px 0 4px #aaa;
+}#botnIniciar:hover{
+	box-shadow: 0 3px 0 4px #555;
+}#botnIniciar:active{
+	box-shadow: none;
+	background: linear-gradient(to bottom, #aaa, #fff);
+}
+
+#containerAnimacionBienvenida{
+	display: none;
+}.frasesAnimacion{
+	display: inline-block;
+	position: absolute;
+}
+@keyframes movimientoFrase1{
+	from{
+		left: -40px; bottom: 10%;
+	}
+	to{
+		left: 30%; bottom: 40%;
+	}
+}
+@keyframes movimientoFrase2{
+	from{
+		right: -40px; bottom: 10px;
+	}
+	to{
+		right: 30%; bottom: 40%;
+	}
+}@keyframes explosionFrase1{
+	from{
+		left: 30%; bottom: 40%;
+	}
+	to{
+		left: 25%; bottom: 40%;
+	}
+}@keyframes explosionFrase2{
+	from{
+		right: 30%; bottom: 40%;
+	}
+	to{
+		right: 25%; bottom: 40%;
+	}
+}
