@@ -67,11 +67,11 @@ body{
 }
 
 #scrollproductos{
-    width: 82vw;
+    width: 100%;
 }
 
 .productos {
-    margin: 230px 1rem;
+    margin: 20px 1rem; margin-left: 1.5em;
     padding: 1.3em 3em;
     font-size: 20px;
     letter-spacing: 2px;
@@ -87,31 +87,29 @@ body{
     cursor: pointer;
     outline: none;
     display: inline-block;
-   }
+}
 
-   .productos:hover {
+.productos:hover {
     background-color: #ccc6db;
     box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15);
     color: rgb(112, 112, 112);
     transform: translateY(-25px);
     border: 2px #e7e42c solid;
-   }
+}
 
 
 
 
-   img{
+img{
     height: 220px;
     width: 280px;
     margin: 2px auto;
     border-radius: 20px;
     display: block;
-   }
-   h1{
-
-       text-align: center;
-       
-   }
+}
+h1{
+    text-align: center;
+}
 
 .cantidad{
     text-align: center;
@@ -125,7 +123,7 @@ body{
 .agregar{
     margin: 20px 57px;
     Width: 180px;
-    Height: 50px;
+    Height: 60px;
     background-color: #F5B632;
     border-radius: 12px;
     border-style: none;
@@ -138,7 +136,7 @@ body{
     background-color: #bbb829;
     box-shadow: 0px 15px 40px rgba(80, 78, 0, 0.15);
     color: rgb(117, 98, 51);
-   }
+}
 
 .agregar:active {
     background-color: #949232;
