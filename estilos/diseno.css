@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#barra{
+width: 100vw;
+height: 5vh;
+background-color: #043392;
+}
+body{
+    background-color: #EAEEFA;
+}
+#cajas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    margin-top: 3%;
+}
+#cajaPrincipal{
+    width: 70vw;
+    height: 80vh;
+    background-color: #ffffff;
+    margin: 30px;
+    border-radius: 12px;
+}
+#cajaSecundaria{
+    width: 25vw;
+    height: 71.7vh;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+#ladoDerecho{
+    margin: 30px;
+}
+button{
+    margin-top: 40px;
+    margin-right: 40px;
+    Width: 86px;
+    Height: 72px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border-style: none;
+    font-size: large;
+}
+#boton1{
+    margin-right: 40px;
+    Width: 210px;
+    background-color: #F5B632;
+}
+.btn4{
+    right: 0;
+}
