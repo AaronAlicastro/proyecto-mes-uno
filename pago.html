@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pestana pago</title>
-    <link rel="stylesheet" href="estilos/diseno.css">
+    <link rel="stylesheet" href="estilos/estiloPago.css">
 </head>
 
 <body>
@@ -18,8 +18,8 @@
         <div id="containerPago">
             <h1 id="titulocontainer">Informacion de pago</h1>
             <div class="linea_pago">
-                <input type="text" class="pedir" placeholder="Nombre completo">
-                <input type="text" class="pedir" placeholder="E-mail">
+                <input type="text" class="pedir persona" placeholder="Nombre completo">
+                <input type="text" class="pedir persona" placeholder="E-mail">
             </div>
             <div class="linea_pago">
                 <input type="text" class="pedir" placeholder="Numero de tarjeta">
@@ -32,12 +32,26 @@
             <button id="validarpago">Validar datos</button>
         </div>
 
-        <div id="containerFactura">
-
+        <div id="contenedorFactura">
+            <div class="barras" id="barraInfo">
+                <h3 class="barraInfo_info"></h3>
+                <h3 class="barraInfo_info"></h3>
+                <h3 class="barraInfo_info"></h3>
+                <h3 class="barraInfo_info"></h3>
+            </div>
+            <div class="barras" id="barraDescripcion">
+                <textarea class="barraDescripcion_descripcion" readonly="">Producto</textarea>
+                <textarea class="barraDescripcion_descripcion" readonly="">Cantidad</textarea>
+                <textarea class="barraDescripcion_descripcion" readonly="">Precio</textarea>
+            </div>
+            <div class="barras" id="barraTotal">
+                <input type="text" class="barraTotal_total" id="mensajeValorTotal">
+                <input type="text" class="barraTotal_total" id="valorTotalProductos">
+            </div>
         </div>
     </div>
 
-    <script src="funcion/items.js"></script>
+    <script src="funcion/funcionPago.js"></script>
 </body>
 
 </html>
