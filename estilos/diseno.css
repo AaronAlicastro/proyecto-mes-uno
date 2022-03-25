@@ -27,15 +27,24 @@ body{
     transition: all 200ms linear;
     flex-shrink: 100;
 }
+h4{
+    text-align: center;
+}
 #cajaSecundaria{
+    overflow: auto;
+    scroll-behavior: smooth;
     width: 100%; height: 70vh;
     background-color: #ffffff;
     border-radius: 12px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 #ladoDerecho{
     display: flex;
     flex-direction: column;
     width: 30%; height: 90%;
+    box-sizing: border-box;
 }
 
 #botones{
@@ -55,7 +64,7 @@ body{
 }
 #boton1{
     background: #F5B632;
-    flex-basis: 5em;
+    flex-basis: 9em;
     flex-shrink: 0;
     cursor: pointer;
 }
@@ -64,6 +73,8 @@ body{
 
 #cajaPrincipal{
     overflow: auto;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 #scrollproductos{
@@ -146,12 +157,12 @@ h1{
     background-color: #e7e42c;
     box-shadow: 0px 15px 40px rgba(80, 78, 0, 0.15);
     color: rgb(112, 112, 112);
-   }
+}
 
-   #boton1:active {
+#boton1:active {
     background-color: #b4b242;
 	background: #F5B632;
-	flex-basis: 5em;
+	flex-basis: 10em;
 	flex-shrink: 0;
 }
 
