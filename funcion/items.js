@@ -25,6 +25,8 @@ buttons[2].addEventListener("click", (e) => {
     nombreComida.pop();
     precioTotal -= (cantidadComida.pop() * precioComida.pop());
     mostrarNuevosValores();
+    if (conteo >= 0) conteo--;
+    else alert("No hay productos que eliminar");
 });
 
 botonAgregar[0].addEventListener("click", (e) => {

@@ -250,3 +250,69 @@ h1 {
         height: 20vh;
     }
 }
+
+.titulopago {
+    text-align: left;
+    margin-left: 10px;
+    color: white;
+    display: inline;
+}
+
+#barra {
+    padding-top: 5px;
+}
+
+#containerPago {
+    background: #6783BF;
+    height: 330px;
+    width: 390px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 10em;
+    border-radius: 13px;
+}
+
+.linea_pago {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#validarpago {
+    width: 10em;
+    height: 2em;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+
+#validarpago:hover {
+    background-color: #a9b3e7;
+    box-shadow: 0px 15px 40px rgba(80, 78, 0, 0.15);
+    color: rgb(0, 14, 39);
+}
+
+.pedir::placeholder {
+    text-align: center;
+    color: #1c105c;
+}
+
+.pedir {
+    border-style: none;
+    outline: none;
+    padding-left: 3px;
+    border-radius: 6px;
+    transition: all 0.3s ease 0s;
+    height: 25px;
+}
+
+.pedir:focus {
+    outline: #a3a11e solid 2px;
+}
+
+#titulocontainer {
+    color: white;
+}
