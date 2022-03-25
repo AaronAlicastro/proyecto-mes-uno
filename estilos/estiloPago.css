@@ -87,6 +87,9 @@ body {
 #contenedorFactura{
     display: none;
 }
+#containerAnimacionFactura{
+    display: none;
+}
 .barras{
     display: flex;
     flex-direction: row;
@@ -98,6 +101,7 @@ body {
     outline: 2px solid #126;
     box-shadow: 1px 5px 2px 2px #5698da;
     z-index: 3;
+    padding-top: 20px; padding-bottom: 5px;
 }
 .barraInfo_info{
     width: 25%;
@@ -140,4 +144,23 @@ body {
 
 #valorTotalProductos{
     width: 100%;
+}
+
+@keyframes aparecerContainerFactura{
+    from{
+        width: 0; height: 10px;
+        margin-top: 10em; margin-right: 30px;
+    }
+    to{
+        width: 60%; height: 350px; margin-top: 10em; margin-right: 30px;
+        background: #6783BF; border-radius: 12px; box-sizing: content-box;
+    }
+}
+@keyframes aparecerContainerFacturaAnimation{
+    from{
+        width: 100%; height: 10px; box-sizing: border-box;
+    }
+    to{
+        height: 100%; box-sizing: content-box;
+    }
 }

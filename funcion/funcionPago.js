@@ -1,5 +1,6 @@
 const validarpago = document.querySelector("#validarpago");
 const contenedorFactura = document.querySelector("#contenedorFactura");
+const containerAnimacionFactura = document.querySelector("#containerAnimacionFactura");
 const persona = document.querySelectorAll(".persona");
 const pedir = document.querySelectorAll(".pedir");
 const barraInfo_info = document.querySelectorAll(".barraInfo_info");
@@ -10,9 +11,17 @@ var datosAja = [1,2,3,4,5,6,7,8,9,10,21,432,5,57,79,4,23,4456];
 
 validarpago.addEventListener("click", (e)=>{
 	contenedorFactura.style.display = "block";
-	contenedorFactura.style.marginTop = "10em";
-	contenedorFactura.style.marginRight = "30px";
-	contenedorFactura.style.width = "60%";
+	contenedorFactura.style.animation = "aparecerContainerFactura 3s forwards";
+	setTimeout((e)=>{
+		containerAnimacionFactura.style.display = "block";
+		containerAnimacionFactura.style.overflow = "auto";
+		containerAnimacionFactura.style.animation = "aparecerContainerFacturaAnimation 3.5s forwards";
+		setTimeout((e)=>{ containerAnimacionFactura.style.overflow = "hidden";}, 3501);
+	}, 3001);
+
+	for(let i = 0; i < 6; i++){
+		pedir[i].value = "";
+	}
 	agregarDatosFactura();
 });
 
@@ -33,7 +42,4 @@ function agregarDatosFactura() {
 	}
 	barraTotal_total[0].value = "Total  –> ";
 	barraTotal_total[1].value = "Aqui va el total";
-	for(let i = 0; i < 6; i++){
-		pedir[i].value = "";
-	}
 }
