@@ -3,9 +3,9 @@
     padding: 0;
 }
 #barra{
-width: 100vw;
+width: 100%;
 height: 5vh;
-background-color: #043392;
+background-color: hsl(220, 95%, 29%);
 }
 body{
     background-color: #EAEEFA;
@@ -18,11 +18,41 @@ body{
     margin-top: 3%;
 }
 #cajaPrincipal{
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    padding: 110px;
     width: 70vw;
     height: 80vh;
     background-color: #ffffff;
     margin: 30px;
     border-radius: 12px;
+}
+#cajaPrincipal .mesa{
+    margin: 20px;
+    height: 140px;
+    border-radius: 100%;
+    width: 140px;
+}
+
+.desocupada{
+    background-color: #EDFBED;
+}
+.ocupada{
+    background-color: #FEECEA;
+}
+.m1,
+.m2,
+.m3,
+.m4,
+.m5,
+.m6,
+.m7,
+.m8,
+.m9{
+    text-align: center;
+    color: rgb(128, 128, 128);
+    margin-top: 35%;
+    font-size: 30px;
 }
 #cajaSecundaria{
     width: 25vw;
@@ -50,4 +80,47 @@ button{
 }
 .btn4{
     right: 0;
+}
+.form1{
+    display: none;
+}
+.form2{
+    margin: 20%;
+    margin-left: 36%;
+    position: absolute;
+    height: 380px;
+    width: 280px;
+    border-radius: 9px;
+    background-color: #EAEEFA;
+    box-shadow: 0px 4px 9px 0px #0433921A;
+    border: 1px solid #0433921A
+}
+.formmodal{
+    padding: 10%;
+}
+
+.borde1{
+    border: solid 10px red;
+}
+.borde2{
+    border: solid 10px green;
+}
+#nombre, #apellido, #telefono{
+    outline: none;
+    width: 200px;
+    height: 30px;
+    border-radius: 9px;
+    border: none;
+    margin: 10px;
+    font-size: 17px;
+    padding-left: 1em;
+}
+#reservar, #cancelar{
+    color: red;
+    margin-top: 10px;
+    margin-left: 9px;
+    Width: 210px;
+}
+#reservar{
+    color: #043392;
 }
