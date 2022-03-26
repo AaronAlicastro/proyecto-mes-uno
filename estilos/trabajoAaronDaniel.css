@@ -255,3 +255,7 @@ h1 {
         height: 20vh;
     }
 }
+
+#containerGeneralpestanaPago{
+    display: none;
+}

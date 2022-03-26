@@ -2,6 +2,8 @@ const botonAgregar = document.querySelectorAll(".agregar");
 const inputCantidadProducto = document.querySelectorAll(".cantidad");
 const cajaSecundaria = document.querySelector("#cajaSecundaria");
 const buttons = document.querySelectorAll(".buttons");
+const containerGeneralPestanaItem = document.querySelector("#containerGeneralPestanaItem");
+const containerGeneralpestanaPago = document.querySelector("#containerGeneralpestanaPago");
 var nombreComida = [],
     cantidadComida = [],
     precioComida = [],
@@ -13,7 +15,9 @@ buttons[0].addEventListener("click", (e) => {
     else {
         var opcion = confirm("¿Desea confirmar su pedido?");
         if (opcion == true) {
-            location.href = "pago.html";
+            agregarProductosLocalStorage();
+            containerGeneralPestanaItem.style.display = "none";
+            containerGeneralpestanaPago.style.display = "block";
         }
     }
 });
@@ -65,4 +69,20 @@ function mostrarNuevosValores() {
     for (var i = 0; i < nombreComida.length; i++) {
         cajaSecundaria.innerHTML += `<li>${nombreComida[i]} <b>x${cantidadComida[i]}$</b> ${precioComida[i]}</li> \n <br>`;
     }
+}
+
+function agregarProductosLocalStorage(){
+    let comida_nombre = "";
+    let comidad_cantidad = "";
+    let comida_precio = "";
+    for (let i = 0; i < nombreComida.length; i++) {
+        comida_nombre += nombreComida[i]+",";
+        comidad_cantidad += cantidadComida[i]+",";
+        comida_precio += precioComida[i]+",";
+    }
+
+    localStorage.setItem("nombresProductos", comida_nombre);
+    localStorage.setItem("cantidadProductos", comidad_cantidad);
+    localStorage.setItem("preciosProductos", comida_precio);
+    localStorage.setItem("precioTotalComida", precioTotal);
 }

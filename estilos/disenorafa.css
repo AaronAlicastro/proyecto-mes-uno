@@ -124,3 +124,6 @@ button{
 #reservar{
     color: #043392;
 }
+#containerGeneralPestanaItem{
+    display: none;
+}

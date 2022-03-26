@@ -6,17 +6,42 @@ const barraInfo_info = document.querySelectorAll(".barraInfo_info");
 const barraDescripcion_descripcion = document.querySelectorAll(".barraDescripcion_descripcion");
 const barraTotal_total = document.querySelectorAll(".barraTotal_total");
 
-var datosAja = [1,2,3,4,5,6,7,8,9,10,21,432,5,57,79,4,23,4456];
-
 validarpago.addEventListener("click", (e)=>{
+<<<<<<< Updated upstream
 	contenedorFactura.style.display = "block";
 	contenedorFactura.style.marginTop = "10em";
 	contenedorFactura.style.marginRight = "30px";
 	contenedorFactura.style.width = "60%";
 	agregarDatosFactura();
+=======
+	let banda = true;
+	for (var i = 0; i < 6; i++) {
+		if (pedir[i].value.trim() == "") banda = false;
+	}
+	if (banda) {
+		let nombres = localStorage.getItem("nombresProductos").split(",");
+		let cantidades = localStorage.getItem("cantidadProductos").split(",");
+		let precios = localStorage.getItem("preciosProductos").split(",");
+		let precioTotal = localStorage.getItem("precioTotalComida");
+
+		contenedorFactura.style.display = "block";
+		contenedorFactura.style.animation = "aparecerContainerFactura 3s forwards";
+		setTimeout((e)=>{
+			containerAnimacionFactura.style.display = "block";
+			containerAnimacionFactura.style.overflow = "auto";
+			containerAnimacionFactura.style.animation = "aparecerContainerFacturaAnimation 3.5s forwards";
+			setTimeout((e)=>{ containerAnimacionFactura.style.overflow = "hidden";}, 3501);
+		}, 3001);
+
+		for(let i = 0; i < 6; i++){
+			pedir[i].value = "";
+		}
+		agregarDatosFactura(nombres, cantidades, precios, precioTotal);
+	}else alert("Debe llenar todos los campos");
+>>>>>>> Stashed changes
 });
 
-function agregarDatosFactura() {
+function agregarDatosFactura(nombres, cantidades, precios, precioTotal) {
 	barraDescripcion_descripcion[0].value = "Producto \n";
 	barraDescripcion_descripcion[1].value = "Cantidad \n";
 	barraDescripcion_descripcion[2].value = "Precio \n";
@@ -26,14 +51,18 @@ function agregarDatosFactura() {
 	barraInfo_info[1].innerText = `Nombre: ${persona[0].value}`;
 	barraInfo_info[3].innerText = `Fecha: ${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()}`;
 	barraInfo_info[2].innerText = `Mail: ${persona[1].value}`;
-	for (let i = 0; i < datosAja.length; i++) {
-		barraDescripcion_descripcion[0].value += "\n"+datosAja[i]+"\n"+"––––––––––––––––––––––––– \n"
-		barraDescripcion_descripcion[1].value += "\n"+datosAja[i]+"\n"+"––––––––––––––––––––––––– \n"
-		barraDescripcion_descripcion[2].value += "\n"+datosAja[i]+"\n"+"––––––––––––––––––––––––– \n";
+	for (let i = 0; i < (nombres.length - 1); i++) {
+		barraDescripcion_descripcion[0].value += "\n"+nombres[i]+"\n"+"––––––––––––––––––––––––– \n"
+		barraDescripcion_descripcion[1].value += "\n"+cantidades[i]+"\n"+"––––––––––––––––––––––––– \n"
+		barraDescripcion_descripcion[2].value += "\n"+precios[i]+"\n"+"––––––––––––––––––––––––– \n";
 	}
 	barraTotal_total[0].value = "Total  –> ";
+<<<<<<< Updated upstream
 	barraTotal_total[1].value = "Aqui va el total";
 	for(let i = 0; i < 6; i++){
 		pedir[i].value = "";
 	}
+=======
+	barraTotal_total[1].value = precioTotal;
+>>>>>>> Stashed changes
 }
