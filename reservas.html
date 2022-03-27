@@ -7,67 +7,49 @@
     <title>Table Reservation App</title>
     
     <link rel="stylesheet" href="estilos/disenorafa.css">
-    <link rel="stylesheet" href="estilos/trabajoAaronDaniel.css">
-    <link rel="stylesheet" href="estilos/estiloPago.css">
+    <!--<link rel="stylesheet" href="estilos/trabajoAaronDaniel.css">
+    <link rel="stylesheet" href="estilos/estiloPago.css">-->
 </head>
 
 <body>
     <div id="containerGeneralPestanaMesa">
         <div id="barra"></div>
-        <div id="form" class="form1">
-            <form class="formmodal">
-                <input type="text" id="nombre" class="" placeholder="Nombre">
-                <input type="text" id="apellido" placeholder="Apellido">
-                <input type="number" id="telefono" placeholder="Telefono">
-                <button id="reservar">
-                    <p type="submit" id="submit">Reservar</p>
-                </button>
-                <button id="cancelar">
-                    <p id="cerrar">Cancelar</p>
-                </button>
-            </form>
-        </div>
-
+        
         <div id="cajas">
             <div id="cajaPrincipal">
-                <div class="mesa mesa1 desocupada">
-                    <p class="m1">1</p>
-                </div>
-                <div class="mesa desocupada mesa2">
-                    <p class="m2">2</p>
-                </div>
-                <div class="mesa desocupada">
-                    <p class="m3">3</p>
-                </div>
-                <div class="mesa desocupada">
-                    <p class="m4">4</p>
-                </div>
-                <div class="mesa desocupada">
-                    <p class="m5">5</p>
-                </div>
-                <div class="mesa desocupada">
-                    <p class="m6">6</p>
-                </div>
-                <div class="mesa desocupada">
-                    <p class="m7">7</p>
-                </div>
-                <div class="mesa desocupada">
-                    <p class="m8">8</p>
-                </div>
-                <div class="mesa desocupada">
-                    <p class="m9">9</p>
-                </div>
-            </div>
-            <div id="ladoDerecho">
-                <div id="cajaSecundaria"></div>
-                <div id="botones">
-                    <button id="boton1">boton1</button>
-                    <button class="btn">boton2</button>
-                    <button class="btn">boton3</button>
-                    <button class="btn4">boton4</button>
+                <div id="containerMesas">
+                    <div class="lineaMesa">
+                        <div class="mesasTomar">1</div>
+                        <div class="mesasTomar">2</div>
+                        <div class="mesasTomar">3</div>
+                    </div>
+                    <div class="lineaMesa">
+                        <div class="mesasTomar">4</div>
+                        <div class="mesasTomar">5</div>
+                        <div class="mesasTomar">6</div>
+                    </div>
+                    <div class="lineaMesa">
+                        <div class="mesasTomar">7</div>
+                        <div class="mesasTomar">8</div>
+                        <div class="mesasTomar">9</div>
+                    </div>
                 </div>
             </div>
 
+            <div id="ladoDerecho">
+                <div id="cajaSecundaria">
+                    <h4>Reservas</h4>
+                </div>
+                    <button id="confirmar" class="pedirButton">Confirmar</button>
+            </div>
+        </div>
+        <div id="containerFichaMesa">
+            <div id="containerFichaMesa2">
+                <h3 class="valoresPersonaMesa"></h3>
+                <input type="text" class="valoresPersonaMesa" placeholder="Nombre cmpleto" />
+                <button class="valoresPersonaMesa">Reservar</button>
+                <button class="valoresPersonaMesa">Cancelar</button>
+            </div>
         </div>
     </div>
 
@@ -179,8 +161,8 @@
     </div>
 
     <script src="funcion/fuente.js"></script>
-    <script src="funcion/items.js"></script>
-    <script src="funcion/funcionPago.js"></script>
+    <!--<script src="funcion/items.js"></script>
+    <script src="funcion/funcionPago.js"></script>-->
 </body>
 
 </html>

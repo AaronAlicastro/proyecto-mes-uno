@@ -7,13 +7,6 @@ const barraDescripcion_descripcion = document.querySelectorAll(".barraDescripcio
 const barraTotal_total = document.querySelectorAll(".barraTotal_total");
 
 validarpago.addEventListener("click", (e)=>{
-<<<<<<< Updated upstream
-	contenedorFactura.style.display = "block";
-	contenedorFactura.style.marginTop = "10em";
-	contenedorFactura.style.marginRight = "30px";
-	contenedorFactura.style.width = "60%";
-	agregarDatosFactura();
-=======
 	let banda = true;
 	for (var i = 0; i < 6; i++) {
 		if (pedir[i].value.trim() == "") banda = false;
@@ -38,7 +31,6 @@ validarpago.addEventListener("click", (e)=>{
 		}
 		agregarDatosFactura(nombres, cantidades, precios, precioTotal);
 	}else alert("Debe llenar todos los campos");
->>>>>>> Stashed changes
 });
 
 function agregarDatosFactura(nombres, cantidades, precios, precioTotal) {
@@ -57,12 +49,5 @@ function agregarDatosFactura(nombres, cantidades, precios, precioTotal) {
 		barraDescripcion_descripcion[2].value += "\n"+precios[i]+"\n"+"––––––––––––––––––––––––– \n";
 	}
 	barraTotal_total[0].value = "Total  –> ";
-<<<<<<< Updated upstream
-	barraTotal_total[1].value = "Aqui va el total";
-	for(let i = 0; i < 6; i++){
-		pedir[i].value = "";
-	}
-=======
 	barraTotal_total[1].value = precioTotal;
->>>>>>> Stashed changes
 }

@@ -1,155 +1,153 @@
-var m1 = document.querySelector('.m1');
-var m2 = document.querySelector('.m2');
-var mesa1 = document.querySelector('.mesa1');
-var mesa2 = document.querySelector('.mesa2');
-var EstadoMesa;
-var EstadoMesa1;
-var form = document.querySelector('#form');
-var cerrar = document.querySelector("#cerrar");
-var boton = document.querySelector("#submit");
-var nombre = document.querySelector("#nombre")
-var modal = localStorage.getItem('EstadoMesa');
-var apellido = document.querySelector('#apellido');
+const mesasTomar = document.querySelectorAll(".mesasTomar");
+const cajaSecundaria = document.querySelector("#cajaSecundaria");
+const containerFichaMesa = document.querySelector("#containerFichaMesa");
+const valoresPersonaMesa = document.querySelectorAll(".valoresPersonaMesa");
+const confirmar = document.querySelector("#confirmar");
 
-var cajaSecundaria = document.querySelector('#cajaSecundaria');
-o();
-validacion2();
-function validacion2(){
-    nombre.addEventListener('input',()=>{
-        if(nombre.value == ''){
-            nombre.style.border = "solid 1px red";
-        }else{
-            nombre.style.border = "solid 1px green";
-        }
-    }); 
-    apellido.addEventListener('input',()=>{
-        if(apellido.value == ''){
-            apellido.style.border = "solid 1px red";
-        }else{
-            apellido.style.border = "solid 1px green";
-        }
-    }); 
+var nombrePersonaReservo = [], mesaReservada = [], conteo = -1;
+var mesaOcupada = [], mesaSeleccionadaActual = -1; 
+for (var i = 0; i < 9; i++) {
+    mesaOcupada[i] = false;
 }
 
-if(modal == 'false'){
-    mesa1.style.background = 'red';
-    m1.style.color = 'white';
-    mesa2.style.background = 'red';
-    m2.style.color = 'white';
-}
-mesa1.addEventListener('click', () => {
-    var mesa1 = true;
-    mesa1 = localStorage.getItem('EstadoMesa');
+mesasTomar[0].addEventListener("click", (e)=>{
+    if (!mesaOcupada[0]) {
+        mesaSeleccionadaActual = 0;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa uno";
+    }else alert("Mesa reservada");
+});
+mesasTomar[1].addEventListener("click", (e)=>{
+    if (!mesaOcupada[1]) {
+        mesaSeleccionadaActual = 1;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa dos";
+    }else alert("Mesa reservada");
+});
+mesasTomar[2].addEventListener("click", (e)=>{
+    if (!mesaOcupada[2]) {
+        mesaSeleccionadaActual = 2;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa tres";
+    }else alert("Mesa reservada");
+});
+mesasTomar[3].addEventListener("click", (e)=>{
+    if (!mesaOcupada[3]) {
+        mesaSeleccionadaActual = 3;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa cuatro";
+    }else alert("Mesa reservada");
+});
+mesasTomar[4].addEventListener("click", (e)=>{
+    if (!mesaOcupada[4]) {
+        mesaSeleccionadaActual = 4;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa cinco";
+    }else alert("Mesa reservada");
+});
+mesasTomar[5].addEventListener("click", (e)=>{
+    if (!mesaOcupada[5]) {
+        mesaSeleccionadaActual = 5;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa seis";
+    }else alert("Mesa reservada");
+});
+mesasTomar[6].addEventListener("click", (e)=>{
+    if (!mesaOcupada[6]) {
+        mesaSeleccionadaActual = 6;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa siete";
+    }else alert("Mesa reservada");
+});
+mesasTomar[7].addEventListener("click", (e)=>{
+    if (!mesaOcupada[7]) {
+        mesaSeleccionadaActual = 7;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa ocho";
+    }else alert("Mesa reservada");
+});
+mesasTomar[8].addEventListener("click", (e)=>{
+    if (!mesaOcupada[8]) {
+        mesaSeleccionadaActual = 8;
+        containerFichaMesa.style.display = "block";
+        containerFichaMesa.style.position = "absolute";
+        containerFichaMesa.style.width = "21em";
+        containerFichaMesa.style.heigth = "14em";
+        containerFichaMesa.style.top = "18em";
+        containerFichaMesa.style.left = "18em";
+        valoresPersonaMesa[0].innerText = "Mesa nueve";
+    }else alert("Mesa reservada");
+});
 
-    datosPersona(mesa1,'mesa1');
-    limpiar();
-})
-mesa2.addEventListener('click', () => {
-    var mesa2 = true;
-    mesa2 = localStorage.getItem('EstadoMesa1');
-    // console.log(mesa2);
-    datosPersona(mesa2,'mesa2');
-    limpiar();
-})
-var personas = [];
-var nombres2 = [];
-function datosPersona(mesa,seleccions){
-    
-    if(mesa == null){
-        form.classList.remove('form1');
-        form.classList.add('form2');
-        cerrar.addEventListener('click',()=>{
-            form.classList.remove('form2');
-            form.classList.add('form1');
-        });
-        boton.addEventListener('click',()=>{
-            if(nombre.value == '' || apellido.value == ''){
-                alert("Datos incompletos");
-                if(nombre.value == ''){
-                    nombre.style.border = "solid 1px red";
-                }
-                if(apellido.value == ''){
-                    apellido.style.border = "solid 1px red";
-                }
-                
-            }else{
-                
-                // form.classList.remove('form2');
-                // form.classList.add('form1');
-                // console.log(seleccions.value)
-                if(seleccions == 'mesa1'){
-                    // cajaSecundaria.appendChild(p2);
-                    console.log('es mesa1')
-                    EstadoMesa = false; 
-                    mesa1.classList.remove('desocupada');
-                    mesa1.classList.add('ocupada');
-                    localStorage.setItem('EstadoMesa', EstadoMesa);
-                    form.classList.remove('form2');
-                    form.classList.add('form1');
-                    // var numero = Math.random() * 1000000
-                    // console.log(parseInt(numero));
-                    // var nombreA = nombre.value;
-                    // var apellidoB = apellido.value;
-                    // persona += nombreA;
-                    // persona += apellidoB;
-                    // personas += persona
-                    // localStorage.setItem('personas',personas);
-                    var nombres = nombre.value + apellido.value;
-                
-                    nombres2.push(nombres)
-                    // personas.push(nombres2)
-                    localStorage.setItem('apellidos',nombres2);
-                    
-                    // nombres2 += (nombres)
-                    // personas2()
-                    // var p = document.createElement('p');
-                    // p.innerHTML = localStorage.getItem('apellidos');
-                    // cajaSecundaria.appendChild(p);
-                    // var p = document.createElement('p');
-                    // p.innerHTML = localStorage.getItem('apellidos');
-                    // cajaSecundaria.appendChild(p);
-                    
-                }
-                if(seleccions == 'mesa2'){
-                    mesa2.classList.remove('desocupada');
-                    mesa2.classList.add('ocupada');
-                    EstadoMesa1 = false;
-                    localStorage.setItem('EstadoMesa1', EstadoMesa1); 
-                    form.classList.remove('form2');
-                    form.classList.add('form1');
-                    // personas2() 
-                    // var p = document.createElement('p');
-                    // p.innerHTML = localStorage.getItem('apellidos');
-                    // cajaSecundaria.appendChild(p);
-                    nombres2.push(nombres)
-                    localStorage.setItem('apellidos',nombres2);
-                    // var p = document.createElement('p');
-                    // p.innerHTML = localStorage.getItem('apellidos');
-                    // cajaSecundaria.appendChild(p);
-                }
-               
-            }
-            // EstadoMesa = true;
-        });
-    }else{
-        alert('Se ecnuentra temporalmente ocupado');
+valoresPersonaMesa[2].addEventListener("click", (e)=>{
+    if (valoresPersonaMesa[1].value != "") deshabilitarMesa(valoresPersonaMesa[1].value, mesaSeleccionadaActual);
+    else alert("Debes de llenar los campos");
+});
+valoresPersonaMesa[3].addEventListener("click", (e)=>{
+    containerFichaMesa.style.display = "none";
+});
+confirmar.addEventListener("click", (e)=>{
+    alert("hola");
+});
+
+function deshabilitarMesa(nombre, mesa){
+    conteo++;
+    nombrePersonaReservo[conteo] = nombre;
+    mesaReservada[conteo] = mesa;
+    mesasTomar[mesa].style.background = "red";
+    mesaOcupada[mesa] = true;
+    valoresPersonaMesa[1].value = "";
+    containerFichaMesa.style.display = "none";
+    llenarDatosReserva();
+}
+function llenarDatosReserva(){
+    cajaSecundaria.innerHTML = "<h4>Reservas</h4> <br>";
+    for (let i = 0; i < mesaReservada.length; i++) {
+        cajaSecundaria.innerText += nombrePersonaReservo[i]+" reservo "+(mesaReservada[i]+1)+"\n";
     }
-};
-function limpiar(){
-    nombre.value = '';
-}
-
-
-
-// var p = document.createElement('p');
-// // var p2 = document.createElement('p');
-// var otro = localStorage.getItem('apellidos');
-// console.log(otro);
-// p.innerHTML = otro;
-// // p2.innerHTML = apellido.value;
-// cajaSecundaria.appendChild(p);
-function o(){
-    var p = document.createElement('p');
-    p.innerHTML = localStorage.getItem('apellidos');
-    cajaSecundaria.appendChild(p); 
+    confirmar.style.display = "block";
+    confirmar.style.position = "absolute";
+    confirmar.style.width = "120px";
+    confirmar.style.height = "50px";
+    confirmar.style.bottom = "4em";
 }
