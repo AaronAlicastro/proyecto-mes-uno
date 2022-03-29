@@ -10,6 +10,14 @@ var nombreComida = [],
     conteo = -1;
 var precioTotal = 0;
 
+function aparecerNombrePersonaReservo(){
+    let mesasReservadasPersona = localStorage.getItem("mesasReservoPersona");
+    let nombrePersonaReservo = localStorage.getItem("nombrePersonaReservo");
+    cajaSecundaria2.innerHTML = `<h4>${nombrePersonaReservo} has reservado:</h4> <br>`;
+    cajaSecundaria2.innerHTML += `${mesasReservadasPersona}<br>`;
+    cajaSecundaria2.innerHTML += "<h4>Productos agregados</h4>";
+}aparecerNombrePersonaReservo();
+
 buttons[0].addEventListener("click", (e) => {
     if (nombreComida.length < 1) alert("Debe agregar productos para realizar el pago");
     else {
@@ -34,6 +42,7 @@ buttons[2].addEventListener("click", (e) => {
 });
 
 botonAgregar[0].addEventListener("click", (e) => {
+    alert("ajsda");
     agregarProductoLista("Pizza", parseFloat(inputCantidadProducto[0].value), 40000, 0);
 });
 botonAgregar[1].addEventListener("click", (e) => {
@@ -65,7 +74,7 @@ function mostrarTotal(nombreActual, cantidadActual, precioActual, index) {
 }
 
 function mostrarNuevosValores() {
-    cajaSecundaria2.innerHTML = "<h4>Productos agregados</h4> <br>";
+    aparecerNombrePersonaReservo();
     for (var i = 0; i < nombreComida.length; i++) {
         cajaSecundaria2.innerHTML += `<li>${nombreComida[i]} <b>x${cantidadComida[i]}$</b> ${precioComida[i]}</li> \n <br>`;
     }

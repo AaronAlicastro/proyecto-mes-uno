@@ -2,19 +2,26 @@ const mesasTomar = document.querySelectorAll(".mesasTomar");
 const cajaSecundaria = document.querySelector("#cajaSecundaria");
 const conatinerPreguntasReservas = document.querySelector("#conatinerPreguntasReservas");
 const nombrePersonaReservoStayle = document.querySelectorAll(".nombrePersonaReservoStayle");
+const containerGeneralPestanaMesa = document.querySelector("#containerGeneralPestanaMesa");
+const containerGeneralPestanaItem = document.querySelector("#containerGeneralPestanaItem");
+const cambioSource = document.querySelector("#cambioSource");
+const body = document.querySelector("#body");
 
-var mesaReservada = [], conteo = -1, mesaOcupada = [];
+var mesaReservada = [], mesaOcupada = [];
 function resetearMesas(){
     for (var i = 0; i < 9; i++) {
         mesaOcupada[i] = false;
     }
 }
 function cargarMesasReservadas(){
-    let mesasReservadasPersona = localStorage.getItem("mesasReservoPersona").split(",");
-    for(let i = 0; i < (mesasReservadasPersona.length - 1); i++){
-        mesaReservada[i] = mesasReservadasPersona[i];
+    let mesasReservadasPersona = localStorage.getItem("mesasReservoPersona");
+    if (mesasReservadasPersona != null) {
+        mesasReservadasPersona.split(",");
+        for(let i = 0; i < (mesasReservadasPersona.length - 1); i++){
+            mesaReservada[i] = mesasReservadasPersona[i];
+        }
+        deshabilitarMesa();
     }
-    deshabilitarMesa();
 }cargarMesasReservadas();
 
 mesasTomar[0].addEventListener("click", (e)=>{
@@ -119,34 +126,35 @@ mesasTomar[8].addEventListener("click", (e)=>{
 
 nombrePersonaReservoStayle[2].addEventListener("click", (e)=>{
     resetearMesas(); 
-    for (var i = (mesaReservada.length - 1); i >= 0; i--) {
-        mesaReservada.pop();
-    } conteo = -1;
+    mesaReservada.pop();
+
     conatinerPreguntasReservas.style.display = "none";
     alert("Ha cancelado la reserva");
 });
 nombrePersonaReservoStayle[3].addEventListener("click", (e)=>{
     if (nombrePersonaReservoStayle[0].value.trim() != "") {
         let nombrePersonaReservo = nombrePersonaReservoStayle[0].value.trim();
-        let mesasReservadasPersona = "";
-        for (var i = 0; i < mesaReservada.length; i++) {
-            mesasReservadasPersona += mesaReservada[i]+",";
-        }
         localStorage.setItem("nombrePersonaReservo",nombrePersonaReservo);
-        localStorage.setItem("mesasReservoPersona",mesasReservadasPersona);
+        localStorage.setItem("mesasReservoPersona",mesaReservada[0]);
         deshabilitarMesa();
+        setTimeout((e)=>{
+            containerGeneralPestanaMesa.style.display = "none";
+            containerGeneralPestanaItem.style.display = "block";
+            let nuesvoScript = document.createElement("SCRIPT");
+            nuesvoScript.setAttribute("src","fuente/items.js");
+            body.appendChild(nuesvoScript);
+        },600);
 
     }else alert("Debe ingresar su nombre");
 });
 
 function llenarDatosReserva(mesa){
-    conatinerPreguntasReservas.style.display = "flex"; conteo++;
+    conatinerPreguntasReservas.style.display = "flex";
     conatinerPreguntasReservas.style.flexFlow = "column wrap";
-    mesaReservada[conteo] = mesa;
+    mesaReservada[0] = mesa;
+    resetearMesas();
     nombrePersonaReservoStayle[1].value = "¿Deseas reservar las mesas? \n \n";
-    for (let i = 0; i < mesaReservada.length; i++){
-        nombrePersonaReservoStayle[1].value += "Mesa n° "+(mesaReservada[i]+1)+"\n";
-    }
+    nombrePersonaReservoStayle[1].value += "Mesa n° "+(mesaReservada[0]+1);
 }
 function deshabilitarMesa(){
     for (var i = 0; i < mesaReservada.length; i++) {
