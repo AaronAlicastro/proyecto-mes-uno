@@ -39,7 +39,7 @@ h4 {
     text-align: center;
 }
 
-#cajaSecundaria {
+#cajaSecundaria2 {
     overflow: auto;
     scroll-behavior: smooth;
     width: 100%;
@@ -187,22 +187,22 @@ h1 {
 
 #boton1:active {
     background-color: #b4b242;
-	background: #F5B632;
+    background: #F5B632;
 }
 
 @media (max-width: 1193px){
-	#cajaPrincipal{
-		height: 90vh;
-	}
-	#cajaSecundaria{
-		height: 78vh;
-	}
+    #cajaPrincipal{
+        height: 90vh;
+    }
+    #cajaSecundaria2{
+        height: 78vh;
+    }
 }
 @media (max-width: 1193px) {
     #cajaPrincipal {
         height: 90vh;
     }
-    #cajaSecundaria {
+    #cajaSecundaria2 {
         height: 78vh;
     }
 }
@@ -221,7 +221,7 @@ h1 {
         height: 35vh;
         margin-top: 10px;
     }
-    #cajaSecundaria {
+    #cajaSecundaria2 {
         width: 68%;
         height: 35vh;
         flex-shrink: 100;
@@ -244,7 +244,7 @@ h1 {
         margin-top: 10px;
         margin-bottom: 0;
     }
-    #cajaSecundaria {
+    #cajaSecundaria2 {
         width: 100%;
         height: 80vh;
     }
@@ -255,7 +255,6 @@ h1 {
         height: 20vh;
     }
 }
-
 #containerGeneralpestanaPago{
     display: none;
 }

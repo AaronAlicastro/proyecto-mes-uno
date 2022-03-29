@@ -13,9 +13,7 @@ body {
     background-color: #EAEEFA;
     box-sizing: border-box;
 }
-h4{
-    text-align: center;
-}
+h4{ text-align: center; }
 
 #cajas {
     width: 100%; height: 100%;
@@ -66,26 +64,23 @@ h4{
     overflow: auto;
     background-color: #ffffff;
     border-radius: 12px;
-    padding-left: 30px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 15px;
     font-size: 25px;
 }
-#containerFichaMesa{
+/* –––––––––––––––––––––– cuadro de preguntas reservas ––––––––––––––––– */
+#conatinerPreguntasReservas{
     display: none;
 }
-#containerFichaMesa2{
-    margin: auto; margin-top: 1em;
-    width: 8.7em; height: 10em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-wrap: wrap; border-radius: 8px;
-    padding: 6px; background: #2300ff;
-}
-.valoresPersonaMesa{
-    width: 10em; justify-items: center;
-}
+.nombrePersonaReservoStayle{
+    height: 30px; margin-top: 30px;
+    border-radius: 12px; background: #aa8;
+}textarea[class="nombrePersonaReservoStayle"]{
+    height: 15em; resize: none; padding: 15px;
+}.nombrePersonaReservoStayle[placeholder]{
+    outline: none; border-style: none;
+}.nombrePersonaReservoStayle[placeholder]::placeholder{
+    text-align: center; font-weight: bold;
+}/* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 
 @media (max-width: 1193px){
     #cajaPrincipal{
@@ -140,9 +135,6 @@ h4{
         width: 100%;
         height: 80vh;
     }
-}
-#confirmar{
-    display: none;
 }
 .pedirButton{
     background: transparent;

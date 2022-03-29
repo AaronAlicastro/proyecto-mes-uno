@@ -1,6 +1,6 @@
 const botonAgregar = document.querySelectorAll(".agregar");
 const inputCantidadProducto = document.querySelectorAll(".cantidad");
-const cajaSecundaria = document.querySelector("#cajaSecundaria");
+const cajaSecundaria2 = document.querySelector("#cajaSecundaria2");
 const buttons = document.querySelectorAll(".buttons");
 const containerGeneralPestanaItem = document.querySelector("#containerGeneralPestanaItem");
 const containerGeneralpestanaPago = document.querySelector("#containerGeneralpestanaPago");
@@ -23,14 +23,14 @@ buttons[0].addEventListener("click", (e) => {
 });
 buttons[1].addEventListener("click", (e) => {
     if (nombreComida.length < 1) alert("No ingresaste ningún producto");
-    else cajaSecundaria.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
+    else cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
 });
 buttons[2].addEventListener("click", (e) => {
-    nombreComida.pop();
-    precioTotal -= (cantidadComida.pop() * precioComida.pop());
-    mostrarNuevosValores();
-    if (conteo >= 0) conteo--;
-    else alert("No hay productos que eliminar");
+    if (conteo >= 0){ 
+        conteo--; nombreComida.pop();
+        precioTotal -= (cantidadComida.pop() * precioComida.pop());
+        mostrarNuevosValores();
+    }else alert("No hay productos que eliminar");
 });
 
 botonAgregar[0].addEventListener("click", (e) => {
@@ -59,15 +59,15 @@ function agregarProductoLista(nombre, cantidad, precio, index) {
 
 function mostrarTotal(nombreActual, cantidadActual, precioActual, index) {
     precioTotal += (cantidadActual * precioActual);
-    cajaSecundaria.innerHTML += `<li>${nombreActual} <b>x${cantidadActual}$</b> ${precioActual}</li> \n <br>`;
+    cajaSecundaria2.innerHTML += `<li>${nombreActual} <b>x${cantidadActual}$</b> ${precioActual}</li> \n <br>`;
 
     inputCantidadProducto[index].value = '1';
 }
 
 function mostrarNuevosValores() {
-    cajaSecundaria.innerHTML = "<h4>Productos agregados</h4> <br>";
+    cajaSecundaria2.innerHTML = "<h4>Productos agregados</h4> <br>";
     for (var i = 0; i < nombreComida.length; i++) {
-        cajaSecundaria.innerHTML += `<li>${nombreComida[i]} <b>x${cantidadComida[i]}$</b> ${precioComida[i]}</li> \n <br>`;
+        cajaSecundaria2.innerHTML += `<li>${nombreComida[i]} <b>x${cantidadComida[i]}$</b> ${precioComida[i]}</li> \n <br>`;
     }
 }
 

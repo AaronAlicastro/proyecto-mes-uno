@@ -1,153 +1,156 @@
 const mesasTomar = document.querySelectorAll(".mesasTomar");
 const cajaSecundaria = document.querySelector("#cajaSecundaria");
-const containerFichaMesa = document.querySelector("#containerFichaMesa");
-const valoresPersonaMesa = document.querySelectorAll(".valoresPersonaMesa");
-const confirmar = document.querySelector("#confirmar");
+const conatinerPreguntasReservas = document.querySelector("#conatinerPreguntasReservas");
+const nombrePersonaReservoStayle = document.querySelectorAll(".nombrePersonaReservoStayle");
 
-var nombrePersonaReservo = [], mesaReservada = [], conteo = -1;
-var mesaOcupada = [], mesaSeleccionadaActual = -1; 
-for (var i = 0; i < 9; i++) {
-    mesaOcupada[i] = false;
+var mesaReservada = [], conteo = -1, mesaOcupada = [];
+function resetearMesas(){
+    for (var i = 0; i < 9; i++) {
+        mesaOcupada[i] = false;
+    }
 }
+function cargarMesasReservadas(){
+    let mesasReservadasPersona = localStorage.getItem("mesasReservoPersona").split(",");
+    for(let i = 0; i < (mesasReservadasPersona.length - 1); i++){
+        mesaReservada[i] = mesasReservadasPersona[i];
+    }
+    deshabilitarMesa();
+}cargarMesasReservadas();
 
 mesasTomar[0].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 0) banda = false;
+    }
     if (!mesaOcupada[0]) {
-        mesaSeleccionadaActual = 0;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa uno";
+        if (banda) { 
+            llenarDatosReserva(0);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 mesasTomar[1].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 1) banda = false;
+    }
     if (!mesaOcupada[1]) {
-        mesaSeleccionadaActual = 1;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa dos";
+        if (banda) { 
+            llenarDatosReserva(1);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 mesasTomar[2].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 2) banda = false;
+    }
     if (!mesaOcupada[2]) {
-        mesaSeleccionadaActual = 2;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa tres";
+        if (banda) { 
+            llenarDatosReserva(2);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 mesasTomar[3].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 3) banda = false;
+    }
     if (!mesaOcupada[3]) {
-        mesaSeleccionadaActual = 3;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa cuatro";
+        if (banda) { 
+            llenarDatosReserva(3);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 mesasTomar[4].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 4) banda = false;
+    }
     if (!mesaOcupada[4]) {
-        mesaSeleccionadaActual = 4;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa cinco";
+        if (banda) { 
+            llenarDatosReserva(4);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 mesasTomar[5].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 5) banda = false;
+    }
     if (!mesaOcupada[5]) {
-        mesaSeleccionadaActual = 5;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa seis";
+        if (banda) { 
+            llenarDatosReserva(5);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 mesasTomar[6].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 6) banda = false;
+    }
     if (!mesaOcupada[6]) {
-        mesaSeleccionadaActual = 6;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa siete";
+        if (banda) { 
+            llenarDatosReserva(6);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 mesasTomar[7].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 7) banda = false;
+    }
     if (!mesaOcupada[7]) {
-        mesaSeleccionadaActual = 7;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa ocho";
+        if (banda) { 
+            llenarDatosReserva(7);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 mesasTomar[8].addEventListener("click", (e)=>{
+    let banda = true;
+    for (let i = 0; i < mesaReservada.length; i++){
+        if (mesaReservada[i] == 8) banda = false;
+    }
     if (!mesaOcupada[8]) {
-        mesaSeleccionadaActual = 8;
-        containerFichaMesa.style.display = "block";
-        containerFichaMesa.style.position = "absolute";
-        containerFichaMesa.style.width = "21em";
-        containerFichaMesa.style.heigth = "14em";
-        containerFichaMesa.style.top = "18em";
-        containerFichaMesa.style.left = "18em";
-        valoresPersonaMesa[0].innerText = "Mesa nueve";
+        if (banda) { 
+            llenarDatosReserva(8);
+        }else alert("Ya eligió esta mesa");
     }else alert("Mesa reservada");
 });
 
-valoresPersonaMesa[2].addEventListener("click", (e)=>{
-    if (valoresPersonaMesa[1].value != "") deshabilitarMesa(valoresPersonaMesa[1].value, mesaSeleccionadaActual);
-    else alert("Debes de llenar los campos");
+nombrePersonaReservoStayle[2].addEventListener("click", (e)=>{
+    resetearMesas(); 
+    for (var i = (mesaReservada.length - 1); i >= 0; i--) {
+        mesaReservada.pop();
+    } conteo = -1;
+    conatinerPreguntasReservas.style.display = "none";
+    alert("Ha cancelado la reserva");
 });
-valoresPersonaMesa[3].addEventListener("click", (e)=>{
-    containerFichaMesa.style.display = "none";
-});
-confirmar.addEventListener("click", (e)=>{
-    alert("hola");
+nombrePersonaReservoStayle[3].addEventListener("click", (e)=>{
+    if (nombrePersonaReservoStayle[0].value.trim() != "") {
+        let nombrePersonaReservo = nombrePersonaReservoStayle[0].value.trim();
+        let mesasReservadasPersona = "";
+        for (var i = 0; i < mesaReservada.length; i++) {
+            mesasReservadasPersona += mesaReservada[i]+",";
+        }
+        localStorage.setItem("nombrePersonaReservo",nombrePersonaReservo);
+        localStorage.setItem("mesasReservoPersona",mesasReservadasPersona);
+        deshabilitarMesa();
+
+    }else alert("Debe ingresar su nombre");
 });
 
-function deshabilitarMesa(nombre, mesa){
-    conteo++;
-    nombrePersonaReservo[conteo] = nombre;
+function llenarDatosReserva(mesa){
+    conatinerPreguntasReservas.style.display = "flex"; conteo++;
+    conatinerPreguntasReservas.style.flexFlow = "column wrap";
     mesaReservada[conteo] = mesa;
-    mesasTomar[mesa].style.background = "red";
-    mesaOcupada[mesa] = true;
-    valoresPersonaMesa[1].value = "";
-    containerFichaMesa.style.display = "none";
-    llenarDatosReserva();
-}
-function llenarDatosReserva(){
-    cajaSecundaria.innerHTML = "<h4>Reservas</h4> <br>";
-    for (let i = 0; i < mesaReservada.length; i++) {
-        cajaSecundaria.innerText += nombrePersonaReservo[i]+" reservo "+(mesaReservada[i]+1)+"\n";
+    nombrePersonaReservoStayle[1].value = "¿Deseas reservar las mesas? \n \n";
+    for (let i = 0; i < mesaReservada.length; i++){
+        nombrePersonaReservoStayle[1].value += "Mesa n° "+(mesaReservada[i]+1)+"\n";
     }
-    confirmar.style.display = "block";
-    confirmar.style.position = "absolute";
-    confirmar.style.width = "120px";
-    confirmar.style.height = "50px";
-    confirmar.style.bottom = "4em";
+}
+function deshabilitarMesa(){
+    for (var i = 0; i < mesaReservada.length; i++) {
+        mesasTomar[mesaReservada[i]].style.background = "red";
+        mesaOcupada[mesaReservada[i]] = true;
+    }
 }

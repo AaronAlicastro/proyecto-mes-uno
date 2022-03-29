@@ -26,9 +26,6 @@ validarpago.addEventListener("click", (e)=>{
 			setTimeout((e)=>{ containerAnimacionFactura.style.overflow = "hidden";}, 3501);
 		}, 3001);
 
-		for(let i = 0; i < 6; i++){
-			pedir[i].value = "";
-		}
 		agregarDatosFactura(nombres, cantidades, precios, precioTotal);
 	}else alert("Debe llenar todos los campos");
 });
@@ -50,4 +47,7 @@ function agregarDatosFactura(nombres, cantidades, precios, precioTotal) {
 	}
 	barraTotal_total[0].value = "Total  –> ";
 	barraTotal_total[1].value = precioTotal;
+	for(let i = 0; i < 6; i++){
+		pedir[i].value = "";
+	}
 }
