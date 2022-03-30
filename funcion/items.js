@@ -11,31 +11,31 @@ var nombreComida = [],
     conteo = -1;
 var precioTotal = 0;
 
-function aparecerNombrePersonaReservo(){
+function aparecerNombrePersonaReservo() {
     let mesasReservadasPersona = parseInt(localStorage.getItem("mesasReservoPersona"));
     let nombrePersonaReservo = localStorage.getItem("nombrePersonaReservo");
     cajaSecundaria2.innerHTML = `<h4>${nombrePersonaReservo} has reservado:</h4> <br>`;
-    cajaSecundaria2.innerHTML += `La mesa n° ${mesasReservadasPersona+1}<br><br>`;
+    cajaSecundaria2.innerHTML += `La mesa n° ${mesasReservadasPersona + 1}<br><br>`;
     cajaSecundaria2.innerHTML += "<h4>Productos agregados</h4> <br>";
 }
 
 botonOrdenar.addEventListener("click", (e) => {
-    if(ordenHecha==false){
+    if (ordenHecha == false) {
         if (nombreComida.length < 1) {
             alert("Debe agregar productos para realizar la orden");
-        }else{
+        } else {
             ordenHecha = true;
             alert("Orden realizada correctamente");
-            botonOrdenar.innerHTML="Cambiar Orden";
+            botonOrdenar.innerHTML = "Cambiar Orden";
         }
-    }else{
+    } else {
         alert("Orden cambiada correctamente");
     }
 
 })
 
 buttons[0].addEventListener("click", (e) => {
-    if (ordenHecha==false) alert("No se ha realizado ninguna orden");
+    if (ordenHecha == false) alert("No se ha realizado ninguna orden");
     else {
         var opcion = confirm("¿Desea confirmar su pedido?");
         if (opcion == true) {
@@ -50,11 +50,11 @@ buttons[1].addEventListener("click", (e) => {
     else cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
 });
 buttons[2].addEventListener("click", (e) => {
-    if (conteo >= 0){ 
+    if (conteo >= 0) {
         conteo--; nombreComida.pop();
         precioTotal -= (cantidadComida.pop() * precioComida.pop());
         mostrarNuevosValores();
-    }else alert("No hay productos que eliminar");
+    } else alert("No hay productos que eliminar");
 });
 
 botonAgregar[0].addEventListener("click", (e) => {
@@ -95,14 +95,14 @@ function mostrarNuevosValores() {
     }
 }
 
-function agregarProductosLocalStorage(){
+function agregarProductosLocalStorage() {
     let comida_nombre = "";
     let comidad_cantidad = "";
     let comida_precio = "";
     for (let i = 0; i < nombreComida.length; i++) {
-        comida_nombre += nombreComida[i]+",";
-        comidad_cantidad += cantidadComida[i]+",";
-        comida_precio += precioComida[i]+",";
+        comida_nombre += nombreComida[i] + ",";
+        comidad_cantidad += cantidadComida[i] + ",";
+        comida_precio += precioComida[i] + ",";
     }
 
     localStorage.setItem("nombresProductos", comida_nombre);
