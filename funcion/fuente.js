@@ -126,9 +126,10 @@ nombrePersonaReservoStayle[2].addEventListener("click", (e) => {
 
     conatinerPreguntasReservas.style.display = "none";
     alert("Ha cancelado la reserva");
+    nombrePersonaReservoStayle[0].value = "";
 });
 nombrePersonaReservoStayle[3].addEventListener("click", (e) => {
-    if (nombrePersonaReservoStayle[0].value.trim() != "") {
+    if (nombrePersonaReservoStayle[0].value.trim() != "" && mesaReservada != (-1)) {
         let nombrePersonaReservo = nombrePersonaReservoStayle[0].value.trim();
         localStorage.setItem("nombrePersonaReservo", nombrePersonaReservo);
         localStorage.setItem("mesasReservoPersona", mesaReservada);
@@ -139,7 +140,10 @@ nombrePersonaReservoStayle[3].addEventListener("click", (e) => {
             aparecerNombrePersonaReservo();
         }, 600);
 
-    } else alert("Debe ingresar su nombre");
+    } else {
+        alert("Debe ingresar su nombre");
+        
+    }
 });
 
 function llenarDatosReserva(mesa) {

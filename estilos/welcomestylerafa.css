@@ -1,15 +1,16 @@
 *{
     background-color: #EAEEFA;
-    color: #043392
+    color: #043392;
+    user-select: none;
 }
 h1{
-    
     text-align: center;
     font-size: 10vh;
     font-weight: 900;
     padding-top: 2%;
     margin: 0 10px 0 10px;
     z-index: 10;
+    
 }
 #imagen{
     display: flex;
