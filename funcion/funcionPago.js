@@ -26,6 +26,8 @@ validarpago.addEventListener("click", (e)=>{
 			setTimeout((e)=>{ containerAnimacionFactura.style.overflow = "hidden";}, 3501);
 		}, 3001);
 
+		localStorage.clear();
+
 		agregarDatosFactura(nombres, cantidades, precios, precioTotal);
 	}else alert("Debe llenar todos los campos");
 });

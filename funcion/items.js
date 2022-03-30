@@ -2,7 +2,6 @@ const botonAgregar = document.querySelectorAll(".agregar");
 const inputCantidadProducto = document.querySelectorAll(".cantidad");
 const cajaSecundaria2 = document.querySelector("#cajaSecundaria2");
 const buttons = document.querySelectorAll(".buttons");
-const containerGeneralPestanaItem = document.querySelector("#containerGeneralPestanaItem");
 const containerGeneralpestanaPago = document.querySelector("#containerGeneralpestanaPago");
 var nombreComida = [],
     cantidadComida = [],
@@ -11,12 +10,12 @@ var nombreComida = [],
 var precioTotal = 0;
 
 function aparecerNombrePersonaReservo(){
-    let mesasReservadasPersona = localStorage.getItem("mesasReservoPersona");
+    let mesasReservadasPersona = parseInt(localStorage.getItem("mesasReservoPersona"));
     let nombrePersonaReservo = localStorage.getItem("nombrePersonaReservo");
     cajaSecundaria2.innerHTML = `<h4>${nombrePersonaReservo} has reservado:</h4> <br>`;
-    cajaSecundaria2.innerHTML += `${mesasReservadasPersona}<br>`;
-    cajaSecundaria2.innerHTML += "<h4>Productos agregados</h4>";
-}aparecerNombrePersonaReservo();
+    cajaSecundaria2.innerHTML += `La mesa n° ${mesasReservadasPersona+1}<br><br>`;
+    cajaSecundaria2.innerHTML += "<h4>Productos agregados</h4> <br>";
+}
 
 buttons[0].addEventListener("click", (e) => {
     if (nombreComida.length < 1) alert("Debe agregar productos para realizar el pago");
@@ -42,7 +41,6 @@ buttons[2].addEventListener("click", (e) => {
 });
 
 botonAgregar[0].addEventListener("click", (e) => {
-    alert("ajsda");
     agregarProductoLista("Pizza", parseFloat(inputCantidadProducto[0].value), 40000, 0);
 });
 botonAgregar[1].addEventListener("click", (e) => {

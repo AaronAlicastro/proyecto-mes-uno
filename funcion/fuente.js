@@ -7,19 +7,15 @@ const containerGeneralPestanaItem = document.querySelector("#containerGeneralPes
 const cambioSource = document.querySelector("#cambioSource");
 const body = document.querySelector("#body");
 
-var mesaReservada = [], mesaOcupada = [];
+var mesaReservada = -1, mesaOcupada = [];
 function resetearMesas(){
     for (var i = 0; i < 9; i++) {
         mesaOcupada[i] = false;
     }
 }
 function cargarMesasReservadas(){
-    let mesasReservadasPersona = localStorage.getItem("mesasReservoPersona");
-    if (mesasReservadasPersona != null) {
-        mesasReservadasPersona.split(",");
-        for(let i = 0; i < (mesasReservadasPersona.length - 1); i++){
-            mesaReservada[i] = mesasReservadasPersona[i];
-        }
+    mesaReservada = parseInt(localStorage.getItem("mesasReservoPersona"));
+    if (mesaReservada != null) {
         deshabilitarMesa();
     }
 }cargarMesasReservadas();
@@ -27,7 +23,7 @@ function cargarMesasReservadas(){
 mesasTomar[0].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 0) banda = false;
+        if (mesaReservada == 0) banda = false;
     }
     if (!mesaOcupada[0]) {
         if (banda) { 
@@ -38,7 +34,7 @@ mesasTomar[0].addEventListener("click", (e)=>{
 mesasTomar[1].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 1) banda = false;
+        if (mesaReservada == 1) banda = false;
     }
     if (!mesaOcupada[1]) {
         if (banda) { 
@@ -49,7 +45,7 @@ mesasTomar[1].addEventListener("click", (e)=>{
 mesasTomar[2].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 2) banda = false;
+        if (mesaReservada == 2) banda = false;
     }
     if (!mesaOcupada[2]) {
         if (banda) { 
@@ -60,7 +56,7 @@ mesasTomar[2].addEventListener("click", (e)=>{
 mesasTomar[3].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 3) banda = false;
+        if (mesaReservada == 3) banda = false;
     }
     if (!mesaOcupada[3]) {
         if (banda) { 
@@ -71,7 +67,7 @@ mesasTomar[3].addEventListener("click", (e)=>{
 mesasTomar[4].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 4) banda = false;
+        if (mesaReservada == 4) banda = false;
     }
     if (!mesaOcupada[4]) {
         if (banda) { 
@@ -82,7 +78,7 @@ mesasTomar[4].addEventListener("click", (e)=>{
 mesasTomar[5].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 5) banda = false;
+        if (mesaReservada == 5) banda = false;
     }
     if (!mesaOcupada[5]) {
         if (banda) { 
@@ -93,7 +89,7 @@ mesasTomar[5].addEventListener("click", (e)=>{
 mesasTomar[6].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 6) banda = false;
+        if (mesaReservada == 6) banda = false;
     }
     if (!mesaOcupada[6]) {
         if (banda) { 
@@ -104,7 +100,7 @@ mesasTomar[6].addEventListener("click", (e)=>{
 mesasTomar[7].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 7) banda = false;
+        if (mesaReservada == 7) banda = false;
     }
     if (!mesaOcupada[7]) {
         if (banda) { 
@@ -115,7 +111,7 @@ mesasTomar[7].addEventListener("click", (e)=>{
 mesasTomar[8].addEventListener("click", (e)=>{
     let banda = true;
     for (let i = 0; i < mesaReservada.length; i++){
-        if (mesaReservada[i] == 8) banda = false;
+        if (mesaReservada == 8) banda = false;
     }
     if (!mesaOcupada[8]) {
         if (banda) { 
@@ -126,7 +122,7 @@ mesasTomar[8].addEventListener("click", (e)=>{
 
 nombrePersonaReservoStayle[2].addEventListener("click", (e)=>{
     resetearMesas(); 
-    mesaReservada.pop();
+    mesaReservada = -1;
 
     conatinerPreguntasReservas.style.display = "none";
     alert("Ha cancelado la reserva");
@@ -135,14 +131,12 @@ nombrePersonaReservoStayle[3].addEventListener("click", (e)=>{
     if (nombrePersonaReservoStayle[0].value.trim() != "") {
         let nombrePersonaReservo = nombrePersonaReservoStayle[0].value.trim();
         localStorage.setItem("nombrePersonaReservo",nombrePersonaReservo);
-        localStorage.setItem("mesasReservoPersona",mesaReservada[0]);
+        localStorage.setItem("mesasReservoPersona",mesaReservada);
         deshabilitarMesa();
         setTimeout((e)=>{
             containerGeneralPestanaMesa.style.display = "none";
             containerGeneralPestanaItem.style.display = "block";
-            let nuesvoScript = document.createElement("SCRIPT");
-            nuesvoScript.setAttribute("src","fuente/items.js");
-            body.appendChild(nuesvoScript);
+            aparecerNombrePersonaReservo();
         },600);
 
     }else alert("Debe ingresar su nombre");
@@ -151,14 +145,14 @@ nombrePersonaReservoStayle[3].addEventListener("click", (e)=>{
 function llenarDatosReserva(mesa){
     conatinerPreguntasReservas.style.display = "flex";
     conatinerPreguntasReservas.style.flexFlow = "column wrap";
-    mesaReservada[0] = mesa;
+    mesaReservada = mesa;
     resetearMesas();
     nombrePersonaReservoStayle[1].value = "¿Deseas reservar las mesas? \n \n";
-    nombrePersonaReservoStayle[1].value += "Mesa n° "+(mesaReservada[0]+1);
+    nombrePersonaReservoStayle[1].value += "Mesa n° "+(mesaReservada+1);
 }
 function deshabilitarMesa(){
-    for (var i = 0; i < mesaReservada.length; i++) {
-        mesasTomar[mesaReservada[i]].style.background = "red";
-        mesaOcupada[mesaReservada[i]] = true;
+    if (mesaReservada != -1 && mesaReservada != null && mesaReservada > -1) {
+        mesasTomar[mesaReservada].style.background = "red";
+        mesaOcupada[mesaReservada] = true;
     }
 }
