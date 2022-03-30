@@ -3,6 +3,8 @@ const inputCantidadProducto = document.querySelectorAll(".cantidad");
 const cajaSecundaria2 = document.querySelector("#cajaSecundaria2");
 const buttons = document.querySelectorAll(".buttons");
 const containerGeneralpestanaPago = document.querySelector("#containerGeneralpestanaPago");
+const botonOrdenar = document.querySelector("#ordenar");
+var ordenHecha = false;
 var nombreComida = [],
     cantidadComida = [],
     precioComida = [],
@@ -17,8 +19,23 @@ function aparecerNombrePersonaReservo(){
     cajaSecundaria2.innerHTML += "<h4>Productos agregados</h4> <br>";
 }
 
+botonOrdenar.addEventListener("click", (e) => {
+    if(ordenHecha==false){
+        if (nombreComida.length < 1) {
+            alert("Debe agregar productos para realizar la orden");
+        }else{
+            ordenHecha = true;
+            alert("Orden realizada correctamente");
+            botonOrdenar.innerHTML="Cambiar Orden";
+        }
+    }else{
+        alert("Orden cambiada correctamente");
+    }
+
+})
+
 buttons[0].addEventListener("click", (e) => {
-    if (nombreComida.length < 1) alert("Debe agregar productos para realizar el pago");
+    if (ordenHecha==false) alert("No se ha realizado ninguna orden");
     else {
         var opcion = confirm("¿Desea confirmar su pedido?");
         if (opcion == true) {
