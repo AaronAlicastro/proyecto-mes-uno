@@ -153,6 +153,7 @@ function llenarDatosReserva(mesa) {
 function deshabilitarMesa() {
     if (mesaReservada != -1 && mesaReservada != null && mesaReservada > -1) {
         mesasTomar[mesaReservada].style.background = "#FFDCDC";
+        mesasTomar[mesaReservada].style.cursor = "default";
         mesaOcupada[mesaReservada] = true;
     }
 }

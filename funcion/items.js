@@ -45,32 +45,42 @@ buttons[0].addEventListener("click", (e) => {
         }
     }
 });
+
 buttons[1].addEventListener("click", (e) => {
-    if (nombreComida.length < 1) alert("No ingresaste ningún producto");
-    else cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
-});
-buttons[2].addEventListener("click", (e) => {
     if (conteo >= 0) {
         conteo--; nombreComida.pop();
         precioTotal -= (cantidadComida.pop() * precioComida.pop());
         mostrarNuevosValores();
+        if(conteo>=0){
+            cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`; //Sin este if se mostraba el precio aunque no hubieran productos
+        }
     } else alert("No hay productos que eliminar");
 });
 
 botonAgregar[0].addEventListener("click", (e) => {
     agregarProductoLista("Pizza", parseFloat(inputCantidadProducto[0].value), 40000, 0);
+    mostrarNuevosValores();
+    cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
 });
 botonAgregar[1].addEventListener("click", (e) => {
     agregarProductoLista("Lasagna", parseFloat(inputCantidadProducto[1].value), 35000, 1);
+    mostrarNuevosValores();
+    cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
 });
 botonAgregar[2].addEventListener("click", (e) => {
     agregarProductoLista("Tiramisu", parseFloat(inputCantidadProducto[2].value), 30000, 2);
+    mostrarNuevosValores();
+    cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
 });
 botonAgregar[3].addEventListener("click", (e) => {
     agregarProductoLista("Pasta", parseFloat(inputCantidadProducto[3].value), 36000, 3);
+    mostrarNuevosValores();
+    cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
 });
 botonAgregar[4].addEventListener("click", (e) => {
     agregarProductoLista("Calzone", parseFloat(inputCantidadProducto[4].value), 38000, 4);
+    mostrarNuevosValores();
+    cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`;
 });
 
 function agregarProductoLista(nombre, cantidad, precio, index) {
@@ -110,3 +120,15 @@ function agregarProductosLocalStorage() {
     localStorage.setItem("preciosProductos", comida_precio);
     localStorage.setItem("precioTotalComida", precioTotal);
 }
+
+// Hover boton eliminar
+const icoEliminar = document.getElementById("iconEliminar");
+const botonEliminar = document.getElementById("btnEliminar");
+
+botonEliminar.addEventListener("mouseover", function(){
+    icoEliminar.style.opacity = "100%";
+})
+
+botonEliminar.addEventListener("mouseout", function(){
+    icoEliminar.style.opacity = "50%";
+})

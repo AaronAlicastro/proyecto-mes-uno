@@ -59,16 +59,26 @@ h4{
     text-align: center; padding-top: 4.8rem;
     font-size: xx-large;
     color: rgb(157, 157, 157);
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
 }
+
+.mesasTomar:hover{
+    background: #6ebe6d;
+}
+
+
 .centrarImge{
     display: flex;
     justify-content: center;
     
 }
 #iconEliminar{
+    transition: all 0.3s ease 0s;
     opacity: 50%;
     height: 65px;
     width: auto;
+    cursor: pointer;
 }
 #iconEliminar:hover{
     opacity: 100%;
@@ -122,6 +132,7 @@ h4{
 #areaReservada{
     height: 100px;
     padding-top: 10%;
+    cursor: default;
 }
 .nombrePersonaReservoStayle{
     height: 40px; margin-top: 30px;
@@ -200,4 +211,7 @@ h4{
 }
 #containerGeneralpestanaPago{
     display: none;
+}
+#containerGeneralPestanaMesa{
+    cursor: default;
 }
