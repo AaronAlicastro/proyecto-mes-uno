@@ -35,7 +35,7 @@ botonOrdenar.addEventListener("click", (e) => {
 })
 
 buttons[0].addEventListener("click", (e) => {
-    if (ordenHecha == false) alert("No se ha realizado ninguna orden");
+    if (!ordenHecha) alert("No se ha realizado ninguna orden");
     else {
         var opcion = confirm("¿Desea confirmar su pedido?");
         if (opcion == true) {
@@ -54,7 +54,7 @@ buttons[1].addEventListener("click", (e) => {
         if(conteo>=0){
             cajaSecundaria2.innerHTML += `<h4>Valor total: ${precioTotal}$</h4>`; //Sin este if se mostraba el precio aunque no hubieran productos
         }
-    } else alert("No hay productos que eliminar");
+    } else alert("Acción inválida");
 });
 
 botonAgregar[0].addEventListener("click", (e) => {
@@ -132,3 +132,8 @@ botonEliminar.addEventListener("mouseover", function(){
 botonEliminar.addEventListener("mouseout", function(){
     icoEliminar.style.opacity = "50%";
 })
+//–––––––––––––––––––––– boton regresar ––––––––––––––––––––––––––
+buttons[2].addEventListener("click",(e)=>{
+    containerGeneralPestanaItem.style.display = "none";
+    containerGeneralPestanaMesa.style.display = "block";
+});
