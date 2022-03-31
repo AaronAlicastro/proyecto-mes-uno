@@ -54,9 +54,32 @@ body{
     margin-top: 35%;
     font-size: 30px;
 }
+<<<<<<< Updated upstream
 #cajaSecundaria{
     width: 25vw;
     height: 71.7vh;
+=======
+#iconRegresar{
+    transition: all 0.3s ease 0s;
+    opacity: 50%;
+    height: 45px;
+    width: auto;
+    cursor: pointer;
+}
+#iconRegresar:hover{
+    opacity: 100%;
+}
+#ladoDerecho {
+    display: flex;
+    flex-direction: column;
+    width: 21em; height: 42em;
+    box-sizing: border-box;
+}
+#cajaSecundaria {
+    transition: all 0.3s ease 0s;
+    width: 18vw; height: 58vh;
+    overflow: auto;
+>>>>>>> Stashed changes
     background-color: #ffffff;
     border-radius: 12px;
 }
