@@ -66,9 +66,6 @@ h4{
 .mesasTomar:hover{
     background: #6ebe6d;
 }
-<<<<<<< HEAD
-
-
 .centrarImge{
     display: flex;
     justify-content: center;
@@ -80,21 +77,16 @@ h4{
     height: 65px;
     width: auto;
     cursor: pointer;
-=======
-<<<<<<< Updated upstream
-#cajaSecundaria{
-    width: 25vw;
-    height: 71.7vh;
-=======
+}
+#iconEliminar:hover{
+    opacity: 100%;
+}
 #iconRegresar{
     transition: all 0.3s ease 0s;
     opacity: 50%;
     height: 45px;
     width: auto;
     cursor: pointer;
-}
-#iconRegresar:hover{
-    opacity: 100%;
 }
 #ladoDerecho {
     display: flex;
@@ -106,13 +98,8 @@ h4{
     transition: all 0.3s ease 0s;
     width: 18vw; height: 58vh;
     overflow: auto;
->>>>>>> Stashed changes
     background-color: #ffffff;
     border-radius: 12px;
->>>>>>> b0eae1c00144b8e6a155985e08ecdebc5df7403a
-}
-#iconEliminar:hover{
-    opacity: 100%;
 }
 #ladoDerecho {
     display: flex;
